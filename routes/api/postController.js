@@ -16,7 +16,7 @@ router.get("/",(req,res) => {
 router.post("/", (req,res) => {
     if(!req.session.user){
         res.status(401).json({message:"please log in"})
-      }else{
+    }else{
         Post.create({
           title: req.body.title,
           description: req.body.description,
@@ -29,7 +29,7 @@ router.post("/", (req,res) => {
             console.log(err);
             res.status(500).json({ message: "an error occured", err: err });
         });
-      }
+    }
 });
 
 router.put("/:id", (req,res) => {

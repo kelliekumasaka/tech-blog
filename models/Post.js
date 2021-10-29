@@ -6,16 +6,14 @@ class Post extends Model {};
 Post.init({
     title: {
         type:DataTypes.STRING,
+        allowNull:false,
         validate: {
             max: 30,
-            isNull:false
         }
     },
     description: {
         type:DataTypes.TEXT,
-        validate: {
-            isNull:false
-        }
+        allowNull:false
     }
 },{
     sequelize

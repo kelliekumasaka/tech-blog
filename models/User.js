@@ -10,16 +10,16 @@ User.init({
     username: {
         type: DataTypes.STRING,
         unique:true,
+        allowNull:false,
         validate:{
             isAlphanumeric:true,
-            isNull:false
         }
     },
     password:{
         type:DataTypes.STRING,
+        allowNull:false,
         validate:{
             len:[8],
-            isNull:false
         }
     }
 },{

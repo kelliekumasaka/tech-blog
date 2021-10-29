@@ -4,11 +4,9 @@ const sequelize = require('../config/connection');
 class Comment extends Model {};
 
 Comment.init({
-    body:{
+    comment:{
         type:DataTypes.TEXT,
-        validate: {
-            isNull:false
-        }
+        allowNull:false
     }
 },{
     sequelize
