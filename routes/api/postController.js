@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { Post, User } = require('../../models');
+const { Post, User, Comment } = require('../../models');
 
 router.get("/",(req,res) => {
-    Post.findAll(req.body, {
-        include: [User]
-    }).then(allPosts => {
+    Post.findAll({include: [User, Comment]})
+    .then(allPosts => {
         res.json(allPosts)
     }).catch(err => {
         console.log(err);

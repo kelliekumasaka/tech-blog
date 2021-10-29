@@ -6,7 +6,7 @@ router.post("/:id", (req, res) => {
         res.status(401).json({message:"please log in"})
     }else {
         Comment.create({
-            ...req.body,
+            comment:req.body.comment,
             UserId:req.session.user.id,
             PostId:req.params.id
         }).then(newComment => {
