@@ -1,10 +1,18 @@
-
 <div id="userPost">
     <h3>Welcome back, {{username}}!</h3>
-    {{#each Posts}}
-    <p>{{title}}</p>
-    <p>{{description}}</p>
-    {{/each}}
+    <div class="row">
+        <div class="col">
+        {{#each Posts}}
+            <div class="card small">
+                <div class="card-content black-text">
+                    <span class="card-title">{{title}}</span>
+                    <p>{{description}}</p>
+                </div>
+            </div>
+        {{/each}}
+        </div>
+    </div>
 </div>
+
 
 <a href="/newpost" class="waves-effect waves-light btn">New Post</a>

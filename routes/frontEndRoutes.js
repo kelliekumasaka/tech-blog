@@ -28,6 +28,13 @@ router.get("/dashboard",(req,res)=>{
     })
 });
 
+router.get('/comment', (req, res) => {
+    if(!req.session.user){
+        return res.redirect("/login")
+    }
+    res.render('comment')
+})
+
 router.get("/login",(req,res)=>{
     res.render("login")
 });
@@ -41,6 +48,7 @@ router.get("/newpost",(req, res) => {
 });
 
 router.get("/logout",(req,res)=>{
+    req.session.destroy();
     res.render("logout")
 });
 
