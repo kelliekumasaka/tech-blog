@@ -5,19 +5,23 @@ const seed = async () => {
     const userData = await User.bulkCreate([
         {
             username:'kale3',
-            password:'password1'
+            password:'password'
         },
         {
             username:'enyleator',
-            password:'password2'
+            password:'password'
         },
         {
-            username:'jilliuscaesar',
-            password:'password3'
+            username:'kuma13EAR',
+            password:'password'
         },
         {
             username:'lisanne',
-            password:'password4'
+            password:'password'
+        },
+        {
+            username:'daveeddavide',
+            password:'password'
         }
     ],{
         individualHooks:true

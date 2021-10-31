@@ -1,12 +1,13 @@
-const loginForm = document.querySelector("#login-form");
+const signupForm = document.querySelector("#signup-form");
 
-loginForm.addEventListener("submit",(e)=>{
+signupForm.addEventListener("submit",(e)=>{
     e.preventDefault();
     const userObj={
         username:document.querySelector("#username").value,
         password:document.querySelector("#password").value,
-    }
-    fetch("/api/users/login",{
+    };
+    console.log(userObj);
+    fetch("/api/users",{
         method:"POST",
         body:JSON.stringify(userObj),
         headers:{
@@ -14,7 +15,7 @@ loginForm.addEventListener("submit",(e)=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.href = "/dashboard"
+           location.href = "/login"
         } else {
             alert("trumpet sound")
         }

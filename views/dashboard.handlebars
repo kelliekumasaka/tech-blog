@@ -1,0 +1,10 @@
+
+<div id="userPost">
+    <h3>Welcome back, {{username}}!</h3>
+    {{#each Posts}}
+    <p>{{title}}</p>
+    <p>{{description}}</p>
+    {{/each}}
+</div>
+
+<a href="/newpost" class="waves-effect waves-light btn">New Post</a>
