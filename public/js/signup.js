@@ -15,9 +15,21 @@ signupForm.addEventListener("submit",(e)=>{
         }
     }).then(res=>{
         if(res.ok){
-           location.href = "/login"
+            fetch("/api/users/login",{
+                method:"POST",
+                body:JSON.stringify(userObj),
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            }).then(res=>{
+                if(res.ok){
+                   location.href = "/dashboard"
+                } else {
+                    alert("trumpet sound")
+                }
+            })
         } else {
             alert("trumpet sound")
         }
-    })
+    });
 })
