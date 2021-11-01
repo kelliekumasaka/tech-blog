@@ -6,7 +6,6 @@ signupForm.addEventListener("submit",(e)=>{
         username:document.querySelector("#username").value,
         password:document.querySelector("#password").value,
     };
-    console.log(userObj);
     fetch("/api/users",{
         method:"POST",
         body:JSON.stringify(userObj),
@@ -32,4 +31,4 @@ signupForm.addEventListener("submit",(e)=>{
             alert("trumpet sound")
         }
     });
-})
+});

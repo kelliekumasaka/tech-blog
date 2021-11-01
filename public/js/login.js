@@ -5,7 +5,7 @@ loginForm.addEventListener("submit",(e)=>{
     const userObj={
         username:document.querySelector("#username").value,
         password:document.querySelector("#password").value,
-    }
+    };
     fetch("/api/users/login",{
         method:"POST",
         body:JSON.stringify(userObj),

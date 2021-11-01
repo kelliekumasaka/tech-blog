@@ -10,8 +10,21 @@ router.get("/",(req,res) => {
         console.log(err);
         res.status(500).json("internal server error")
     })
-})
+});
 
+router.get('/:id', (req,res) => {
+    Post.findOne({
+        where: {id: req.params.id },
+        include: [User, Comment]
+    }).then(myPost => {
+        res.json(myPost)
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json('internal server error')
+    })
+});
+
+// ./js/newpost.js 
 router.post("/", (req,res) => {
     if(!req.session.user){
         res.status(401).json({message:"please log in"})
@@ -36,9 +49,7 @@ router.put("/:id", (req,res) => {
         res.status(401).json("please log in")
     }else {
         Post.update(req.body,{
-            where:{
-                id:req.params.id
-            }
+            where:{ id:req.params.id }
         }).then(updatedPost => {
             if(!updatedPost){
                 res.status(404).json("post not found")

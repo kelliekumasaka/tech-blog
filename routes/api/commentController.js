@@ -18,6 +18,16 @@ router.post("/:id", (req, res) => {
     }
 });
 
+router.get("/", (req,res) => {
+    Comment.findAll({include: [User]})
+    .then(allComments => {
+        res.json(allComments)
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json("internal server error")
+    })
+})
+
 router.put("/:id", (req,res) => {
     if(!req.session.user){
         res.status(401).json({message:"please log in"})

@@ -8,11 +8,16 @@
                     <span class="card-title">{{title}}</span>
                     <p>{{description}}</p>
                 </div>
+                <div class="card-action" style="display: flex; justify-content:space-between">
+                    <button class="waves-effect waves-light btn editPost">Edit</button>
+                    <button class="waves-effect waves-light btn deletePost">Delete</button>                    
+                </div>
             </div>
         {{/each}}
         </div>
     </div>
 </div>
 
+<a href="/newpost" class="waves-effect waves-light btn" style="margin-top: 10px;">New Post</a>
 
-<a href="/newpost" class="waves-effect waves-light btn">New Post</a>
+<script src="./js/dashboard.js"></script>
