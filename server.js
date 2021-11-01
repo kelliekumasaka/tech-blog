@@ -2,6 +2,7 @@
 const express = require('express');
 // establishes connection from sequelize to my mysql
 const routes = require("./routes");
+const path = require('path');
 const sequelize = require("./config/connection.js");
 const session = require("express-session");
 const exphbs = require('express-handlebars');
