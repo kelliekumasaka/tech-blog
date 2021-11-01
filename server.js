@@ -1,6 +1,7 @@
 // declares express as a variable
 const express = require('express');
 // establishes connection from sequelize to my mysql
+const routes = require("./routes");
 const sequelize = require("./config/connection.js");
 const session = require("express-session");
 const exphbs = require('express-handlebars');
@@ -13,7 +14,7 @@ const hbs = exphbs.create({});
 
 // Requiring our models for syncing
 const { User, Post, Comment } = require("./models");
-const routes = require("./routes");
+
 
 // needed for handlebars
 app.engine('handlebars', hbs.engine);
