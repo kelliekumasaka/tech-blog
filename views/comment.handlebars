@@ -1,6 +1,6 @@
 <div class="card small" style="width: 90%;">
     <div class="card-content black-text">
-        <span class="card-title">{{title}}</span>
+        <span class="card-title">{{title}} <span id="postId">{{id}}</span></span>
         <p>{{description}}</p>
         <p>{{User.username}}</p>
         <p>{{createdAt}}</p>
@@ -8,10 +8,12 @@
     <div class="card-action">
         {{#each Comments}}
         <p>{{comment}}</p>
-        <p>{{UserId.User.username}}</p>
         {{/each}}
     </div>
-    <form>
+    <form id="new-comment">
         <input type="text" placeholder="comment" id="comment">
+        <button type="submit" class="btn waves-effect waves-light">Submit</button>
     </form>
 </div>
+
+<script src="/js/comment.js"></script>

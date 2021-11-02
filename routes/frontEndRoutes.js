@@ -20,38 +20,25 @@ router.get("/dashboard",(req,res)=>{
     };
     User.findOne({
         where:{id: req.session.user.id},
-        include:[Post]
+        include:[Post],
     }).then(userData=>{
         const hbsUser = userData.get({plain:true});
         res.render("dashboard",hbsUser)
     })
 });
 
-router.get('/comment', (req, res) => {
+router.get('/post/:id', (req, res) => {
     if(!req.session.user){
         return res.redirect("/login")
     };
     Post.findOne({
-        where:{id: 3},
+        where:{id: req.params.id},
         include:[User, Comment]
     }).then(postData=>{
         const hbsPost = postData.get({plain:true});
         res.render("comment",hbsPost)
     })
 });
-
-// router.get('/comment', (req, res) => {
-//     if(!req.session.user){
-//         return res.redirect("/login")
-//     };
-//     Comment.findAll({
-//         where:{PostId: 3},
-//         include:[User]
-//     }).then(commentData=>{
-//         const hbsComment = commentData.get({plain:true});
-//         res.render("comment",hbsComment)
-//     })
-// });
 
 
 router.get("/login",(req,res)=>{

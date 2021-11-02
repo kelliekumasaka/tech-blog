@@ -3,7 +3,7 @@
     {{#each posts}}
       <div class="card small">
         <div class="card-content black-text">
-          <span class="card-title">{{title}}</span>
+          <a href="/post/{{id}}"><span class="card-title">{{title}}</span></a>
           <p>{{description}}</p>
         </div>
         <div class="card-action">
@@ -14,5 +14,3 @@
     {{/each}}
     </div>
 </div>
-
-<script src="./js/home.js"></script>
